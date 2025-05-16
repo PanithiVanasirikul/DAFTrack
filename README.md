@@ -74,7 +74,7 @@
 5. Run benchmarking scripts:
     - For WEPDTOF dataset:
         ```bash
-        python all_demo.py --dataset WEPDTOF --match1 75
+        python all_demo.py --dataset WEPDTOF
         ```
     
     - For CEPDOF dataset with ground truth camera height:

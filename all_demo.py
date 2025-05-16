@@ -15,7 +15,7 @@ from f_utils.timer import Timer
 
 # from tracker.RF_tracker import RFTrack
 from tracker.UnscentedGroundRF_tracker import UnscentedGroundRFTrack
-from tracker.UnscentedGroundRF_tracker import f_world, h_world_to_pixel, pix_to_world, world_to_pix
+from tracker.UnscentedGroundRF_tracker import f_world, world_to_pix
 from filterpy.kalman import unscented_transform, MerweScaledSigmaPoints
 
 from f_utils.iou import AssociationFunction
@@ -365,9 +365,7 @@ if __name__ == "__main__":
         CEPDOF_images_folders = [os.path.join(CEPDOF_images_dir, e) for e in os.listdir(CEPDOF_images_dir) if e!="annotations"]
         CEPDOF_annotations_dir = "./formatted_jsons/ground_truth/CEPDOF"
         CEPDOF_annotations_files = [os.path.join(CEPDOF_annotations_dir, e) for e in os.listdir(CEPDOF_annotations_dir)]
-        # CEPDOF_prediction_dir = "/mnt/ssd1/datasets/fisheye_tracking/my_own_pipeline/formatted_jsons/predictions_608/CEPDOF"
         CEPDOF_prediction_dir = "./formatted_jsons/predictions_1024/CEPDOF"
-        # CEPDOF_prediction_dir = "/mnt/ssd1/datasets/fisheye_tracking/my_own_pipeline/formatted_jsons/ground_truth/CEPDOF"
         CEPDOF_prediction_files = [os.path.join(CEPDOF_prediction_dir, e) for e in os.listdir(CEPDOF_prediction_dir)]
 
         paths = CEPDOF_images_folders
@@ -379,9 +377,7 @@ if __name__ == "__main__":
         WEPDTOF_images_folders = [os.path.join(WEPDTOF_images_dir, e) for e in os.listdir(WEPDTOF_images_dir)]
         WEPDTOF_annotations_dir = "./formatted_jsons/ground_truth/WEPDTOF"
         WEPDTOF_annotations_files = [os.path.join(WEPDTOF_annotations_dir, e) for e in os.listdir(WEPDTOF_annotations_dir)]
-        # WEPDTOF_prediction_dir = "/mnt/ssd1/datasets/fisheye_tracking/my_own_pipeline/formatted_jsons/predictions_608/WEPDTOF"
         WEPDTOF_prediction_dir = "./formatted_jsons/predictions_1024/WEPDTOF"
-        # WEPDTOF_prediction_dir = "/mnt/ssd1/datasets/fisheye_tracking/my_own_pipeline/formatted_jsons/ground_truth/WEPDTOF"
         WEPDTOF_prediction_files = [os.path.join(WEPDTOF_prediction_dir, e) for e in os.listdir(WEPDTOF_prediction_dir)]
 
         paths = WEPDTOF_images_folders
