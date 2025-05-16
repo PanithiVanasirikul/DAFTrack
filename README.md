@@ -46,9 +46,9 @@
     ```
 
 
-4. Download [WEPDTOF](https://www.bu.edu/vip/files/WEPDTOF.zip) and [CEPDOF](https://www.bu.edu/vip/files/CEPDOF.zip)
+4. Download [WEPDTOF](https://vip.bu.edu/projects/vsns/cossy/datasets/wepdtof/) and [CEPDOF](https://vip.bu.edu/projects/vsns/cossy/datasets/cepdof/)
     
-    Then place the files in the `datasets` folder. The directory structure should look like this:
+    Then place the files in the `datasets` folder and unzip them. The directory structure should look like this:
 
     ```
     .
@@ -59,7 +59,7 @@
 
     And remove all `__MACOSX` folders in the `datasets` folder and `.DS_Store` in every folders in `dataset` folder.
 
-    Or you can use the following command to download the datasets:
+    Or you can use the following command to preprocess the datasets:
 
     - Linux/Mac:
         ```bash
