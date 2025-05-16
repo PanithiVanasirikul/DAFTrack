@@ -264,7 +264,7 @@ class UnscentedGroundRFTrack(object):
         # self.match1 = 150/1.7
         self.match1 = args.match1
         self.use_camera_height = args.use_camera_height
-        self.estimate_camera_height = args.camera_height == -1
+        self.estimate_camera_height = args.camera_height < 0
         self.camera_height = args.camera_height
         # self.match1 = 150/1.7
         # self.match1 = 30

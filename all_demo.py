@@ -44,13 +44,13 @@ def make_parser():
     parser.add_argument("--dataset", default="CEPDOF", help="CEPDOF scenes")
     # parser.add_argument("--dataset", default="WEPDTOF", help="WEPDTOF scenes")
 
-    parser.add_argument("--match1", default=150, help="default Euclidean distance for CEPDOF, 150 cm")
-    # parser.add_argument("--match1", default=75, help="default Euclidean distance for WEPDTOF, 75 cm")
+    parser.add_argument("--match1", type=float, default=150.0, help="default Euclidean distance for CEPDOF, 150 cm")
+    # parser.add_argument("--match1", type=float, default=75, help="default Euclidean distance for WEPDTOF, 75 cm")
 
-    parser.add_argument("--use_camera_height", default=False, help="scale Euclidean distances with camera height or not")
+    parser.add_argument("--use_camera_height", default=True, help="scale Euclidean distances with camera height or not")
 
-    # parser.add_argument("--camera_height", default=1.7, help="camera height used. using camera_height = -1 means using camera height estimation")
-    parser.add_argument("--camera_height", default=-1, help="camera height used. using camera_height = -1 means using camera height estimation")
+    # parser.add_argument("--camera_height", type=float, default=1.7, help="camera height used. using camera_height = -1 means using camera height estimation")
+    parser.add_argument("--camera_height", type=float, default=-1, help="camera height used. using camera_height = -1 means using camera height estimation")
 
     return parser
 
@@ -102,8 +102,8 @@ def get_frame_info(image_path):
 
 def get_img_info(image_path,label_map, read_img=True):
     
-    img_num = image_path.split('.')[0]
-    img_num = img_num.split(os.path.sep)[-1]
+    img_num = image_path.split(os.path.sep)[-1]
+    img_num = img_num.split('.')[0]
 
     if img_num in label_map:
         labels = label_map[img_num]
@@ -164,9 +164,8 @@ def store_res(frame_id,track,center,radius,with_rot=True,min_box_area=10,):
     mu_cov_pixel = unscented_transform(sigma_transformed, points_world_to_pix.Wm, points_world_to_pix.Wc, residual_fn=np.subtract)
     mu_pixel = (mu_cov_pixel[0]*radius) + center
     cov_pixel = (mu_cov_pixel[1]*radius**2)
-    mu_world_future = f_world(track.x, 4)[[0, 2]]
-    mu_pixel_future = (world_to_pix(mu_world_future)*radius) + center
-    
+    mu_world_future = f_world(track.x, 4)[[0, 1]]
+    mu_pixel_future = (world_to_pix(mu_world_future)*radius) + center    
 
     if box[2] * box[3] > min_box_area:
         boxes = [box]
@@ -362,7 +361,7 @@ if __name__ == "__main__":
     args = make_parser().parse_args()
 
     if args.dataset == "CEPDOF":
-        CEPDOF_images_dir = "/mnt/ssd1/datasets/fisheye_tracking_datasets/CEPDOF"
+        CEPDOF_images_dir = "datasets/CEPDOF"
         CEPDOF_images_folders = [os.path.join(CEPDOF_images_dir, e) for e in os.listdir(CEPDOF_images_dir) if e!="annotations"]
         CEPDOF_annotations_dir = "./formatted_jsons/ground_truth/CEPDOF"
         CEPDOF_annotations_files = [os.path.join(CEPDOF_annotations_dir, e) for e in os.listdir(CEPDOF_annotations_dir)]
@@ -376,12 +375,12 @@ if __name__ == "__main__":
         det_paths = CEPDOF_prediction_files
 
     elif args.dataset == "WEPDTOF":
-        WEPDTOF_images_dir = "/mnt/ssd1/datasets/fisheye_tracking_datasets/WEPDTOF/frames"
+        WEPDTOF_images_dir = "datasets/WEPDTOF/frames"
         WEPDTOF_images_folders = [os.path.join(WEPDTOF_images_dir, e) for e in os.listdir(WEPDTOF_images_dir)]
-        WEPDTOF_annotations_dir = "./ground_truth/WEPDTOF"
+        WEPDTOF_annotations_dir = "./formatted_jsons/ground_truth/WEPDTOF"
         WEPDTOF_annotations_files = [os.path.join(WEPDTOF_annotations_dir, e) for e in os.listdir(WEPDTOF_annotations_dir)]
         # WEPDTOF_prediction_dir = "/mnt/ssd1/datasets/fisheye_tracking/my_own_pipeline/formatted_jsons/predictions_608/WEPDTOF"
-        WEPDTOF_prediction_dir = "./predictions_1024/WEPDTOF"
+        WEPDTOF_prediction_dir = "./formatted_jsons/predictions_1024/WEPDTOF"
         # WEPDTOF_prediction_dir = "/mnt/ssd1/datasets/fisheye_tracking/my_own_pipeline/formatted_jsons/ground_truth/WEPDTOF"
         WEPDTOF_prediction_files = [os.path.join(WEPDTOF_prediction_dir, e) for e in os.listdir(WEPDTOF_prediction_dir)]
 
