@@ -1,0 +1,10 @@
+numpy
+torch==2.0.0
+torchvision==0.15.1
+opencv-python==4.9.0.80
+loguru==0.7.2
+imageio
+scipy==1.10.1
+filterpy
+git+https://github.com/cheind/py-motmetrics.git@c199b3e853d589af4b6a7d88f5bcc8b8802fc434
+lap
