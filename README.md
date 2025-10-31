@@ -36,7 +36,7 @@ This repository provides the official implementation of <b>“Distortion-Aware M
 | **DAFTrack with che (Ours)** | <ins>58.0</ins> | <ins>82.2</ins> | <ins>82.5</ins> | **58.8** | <ins>43.3</ins> | <ins>725</ins> |
 
 
-Tracking performance comparison on the CEPDOF dataset. "gt" refers to using ground truth camera height, while "che" refers to using camera height estimation.
+<sup>Tracking performance comparison on the CEPDOF dataset. "gt" refers to using ground truth camera height, while "che" refers to using camera height estimation.</sup>
 </div>
 
 
@@ -54,7 +54,7 @@ Tracking performance comparison on the CEPDOF dataset. "gt" refers to using grou
 | RF-Tracker | <ins>59.3</ins> | 55.3 | 48.1 | <ins>66.4</ins> | 65.9 | **173** |
 | DAFTrack with che (Ours) | **62.6** | **57.8** | <ins>50.4</ins> | **69.9** | **69.1** | 205 |
 
-Tracking performance comparison on the WEPDTOF dataset. "che" refers to using camera height estimation.
+<sup>Tracking performance comparison on the WEPDTOF dataset. "che" refers to using camera height estimation.</sup>
 </div>
 
 
