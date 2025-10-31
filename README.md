@@ -1,6 +1,6 @@
 # DAFTrack: Distortion-Aware Multi-Object Tracking via Virtual Plane Projection in Overhead Fisheye Cameras
 
-BMVC, 2025
+This repository provides the official implementation of <b>“Distortion-Aware Multi-Object Tracking via Virtual Plane Projection in Overhead Fisheye Cameras”</b>, a BMVC 2025 paper. The included code reproduces the results reported in the paper.
 
 ## Requirements
 
@@ -73,18 +73,21 @@ BMVC, 2025
         ```
 
 
-5. Run benchmarking scripts:
-    - For WEPDTOF dataset:
-        ```bash
-        python all_demo.py --dataset WEPDTOF
-        ```
-    
-    - For CEPDOF dataset with ground truth camera height:
-        ```
-        python all_demo.py --dataset CEPDOF --camera_height 1.7
-        ```
+## Run benchmarking scripts
 
-    - For CEPDOF dataset without ground truth camera height:
-        ```
-        python all_demo.py --dataset CEPDOF
-        ```
+To reproduce the results in the paper, run the following commands:
+
+- For WEPDTOF dataset:
+   ```bash
+   python all_demo.py --dataset WEPDTOF
+   ```
+
+- For CEPDOF dataset with ground truth camera height:
+   ```
+   python all_demo.py --dataset CEPDOF --camera_height 1.7
+   ```
+
+- For CEPDOF dataset without ground truth camera height:
+   ```
+   python all_demo.py --dataset CEPDOF
+   ```
