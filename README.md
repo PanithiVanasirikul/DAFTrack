@@ -2,6 +2,62 @@
 
 This repository provides the official implementation of <b>“Distortion-Aware Multi-Object Tracking via Virtual Plane Projection in Overhead Fisheye Cameras”</b>, a BMVC 2025 paper. The included code reproduces the results reported in the paper.
 
+
+## Results
+
+<p align="center">
+    <img src="assets/output.gif" width="720">
+    <br>
+    <sup>
+        Comparing <a
+            href="https://bmva-archive.org.uk/bmvc/2024/papers/Paper_257/paper.pdf">
+            RF-Tracker
+        </a> (left) with <a
+            href="https://github.com/PanithiVanasirikul/DAFTrack">
+            DAFTrack
+        </a> (right) on the CEPDOF's Lunch1 scene.
+        Our method shows superior tracking performance in overhead fisheye camera scenarios.
+    </sup>
+</p>
+
+### CEPDOF Dataset
+<div align="center">
+
+| Tracker | HOTA ↑ | DetA ↑ | MOTA ↑ | IDF1 ↑ | AssA ↑ | IDS ↓ |
+|---------|--------|--------|--------|--------|--------|-------|
+| **General-purpose Trackers** | | | | | | |
+| BoT-SORT | 46.9 | 70.8 | 68.1 | 52.6 | 33.2 | 1392 |
+| OC-SORT | 47.5 | 75.1 | 77.6 | 47.5 | 31.8 | 11654 |
+| ByteTrack | 49.5 | 77.1 | 78.3 | 49.0 | 33.6 | 1030 |
+| **Fisheye Trackers** | | | | | | |
+| HDA | 51.9 | 79.5 | 79.4 | 51.8 | 36.0 | 1565 |
+| RF-Tracker | 52.9 | 80.4 | 80.7 | 54.4 | 36.8 | 796 |
+| **DAFTrack with gt (Ours)** | **59.0** | **83.0** | **83.2** | <u>58.5</u> | **44.0** | **700** |
+| **DAFTrack with che (Ours)** | <u>58.0</u> | <u>82.2</u> | <u>82.5</u> | **58.8** | <u>43.3</u> | <u>725</u> |
+
+
+Tracking performance comparison on the CEPDOF dataset. "gt" refers to using ground truth camera height, while "che" refers to using camera height estimation.
+</div>
+
+
+### WEPDTOF Dataset
+<div align="center">
+
+| Tracker | HOTA ↑ | DetA ↑ | MOTA ↑ | IDF1 ↑ | AssA ↑ | IDS ↓ |
+|---------|--------|--------|--------|--------|--------|-------|
+| **General-purpose Trackers** | | | | | | |
+| BoT-SORT | 51.9 | 49.7 | 42.0 | 64.5 | 57.8 | 213 |
+| OC-SORT | 57.9 | <u>57.2</u> | **50.6** | 65.2 | 59.9 | 329 |
+| ByteTrack | 56.7 | 56.2 | 49.6 | 64.0 | 59.2 | 273 |
+| **Fisheye Trackers** | | | | | | |
+| HDA | 58.1 | 53.2 | 46.5 | 64.7 | <u>66.2</u> | <u>183</u> |
+| RF-Tracker | <u>59.3</u> | 55.3 | 48.1 | <u>66.4</u> | 65.9 | **173** |
+| DAFTrack with che (Ours) | **62.6** | **57.8** | <u>50.4</u> | **69.9** | **69.1** | 205 |
+
+Tracking performance comparison on the WEPDTOF dataset. "che" refers to using camera height estimation.
+</div>
+
+
 ## Requirements
 
 - `Python 3.8` or `Conda`
