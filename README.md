@@ -1,4 +1,6 @@
-# DAFTrack
+# DAFTrack: Distortion-Aware Multi-Object Tracking via Virtual Plane Projection in Overhead Fisheye Cameras
+
+BMVC, 2025
 
 ## Requirements
 
@@ -48,7 +50,7 @@
 
 4. Download [WEPDTOF](https://vip.bu.edu/projects/vsns/cossy/datasets/wepdtof/) and [CEPDOF](https://vip.bu.edu/projects/vsns/cossy/datasets/cepdof/)
     
-    Then place the files in the `datasets` folder and unzip them. The directory structure should look like this:
+    After finishing downloading and extracting, place the files in the `datasets` folder and unzip them. The directory structure should look like this:
 
     ```
     .
@@ -63,11 +65,11 @@
 
     - Linux/Mac:
         ```bash
-        sh download_datasets.sh
+        sh cleanup_datasets.sh
         ```
     - Windows:
         ```bat
-        download_datasets.bat
+        cleanup_datasets.bat
         ```
 
 
