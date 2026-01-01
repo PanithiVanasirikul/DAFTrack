@@ -1,6 +1,6 @@
 # DAFTrack: Distortion-Aware Multi-Object Tracking via Virtual Plane Projection in Overhead Fisheye Cameras
 
-This repository provides the official implementation of <b>“Distortion-Aware Multi-Object Tracking via Virtual Plane Projection in Overhead Fisheye Cameras”</b>, a BMVC 2025 paper. The included code reproduces the results reported in the paper.
+This repository provides the official implementation of <a href="https://bmvc2025.bmva.org/proceedings/880/"><b>“Distortion-Aware Multi-Object Tracking via Virtual Plane Projection in Overhead Fisheye Cameras”</b></a>, a BMVC 2025 paper. The included code reproduces the results reported in the paper.
 
 
 ## Results
